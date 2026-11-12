@@ -1,0 +1,5 @@
+# TYPE cabinet_temperature gauge
+cabinet_temperature{cabinet="B",note="door\"s sensor\nline two\\back",zone="cold"} 3.25 1760000000
+# TYPE door_events_total counter
+door_events_total{cabinet="B",zone="cold"} 7 1760000000 # {trace_id="abc123",user="op\"7"} 6.5 1760000001
+# EOF

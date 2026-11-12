@@ -14,7 +14,26 @@ python -m unittest discover -s tests -v
 python -m scripts.demo
 ```
 
-检查命令输出单份来源的结构摘要。`capture URL --method GET --state var` 仅接受 loopback HTTP，保存原始响应为 SHA256 文件，并在 SQLite captures 表登记；可用 `--header 'Name:Value'` 传头、`--body FILE` 传正文，不跟随重定向。检查器不执行多页、业务去重或正式接收。当前命令不包含待开发的 scrape 业务流程；新增能力与现有摘要工具的边界见 docs/acceptance.md。
+检查命令输出单份来源的结构摘要。`capture URL --method GET --state var` 仅接受 loopback HTTP，保存原始响应为 SHA256 文件，并在 SQLite captures 表登记；可用 `--header 'Name:Value'` 传头、`--body FILE` 传正文，不跟随重定向。检查器不执行多页、业务去重或正式接收。
+
+## 抓取接收批
+
+```sh
+python -m scripts.source_server --port 8765           # 终端 1
+python -m storemetrics scrape --config fixtures/scrape_config.json \
+    --state var/scrape --all                           # 终端 2
+python -m storemetrics query --state var/scrape --batches
+python -m storemetrics query --state var/scrape --series --present yes
+python -m storemetrics query --state var/scrape --samples --batch A#1
+```
+
+`fixtures/scrape_config.json` 是本地示例，默认指向 `127.0.0.1:8765`，按 `--port` 调整；
+`scrape` 不使用 `--system-clock` 时使用确定性的逐步注入时钟，`--clock-start` 可指定起点，
+`--release-stale SECONDS` 按注入时钟释放超时的未完成抓取。每次抓取是一个接收批
+`<endpoint>#<attempt>`，失败批也留诊断与载荷摘要，但只有完整成功批推进系列存在状态。
+配置中的多个端点各自独立推进；单个端点最多一个未完成抓取；重启只读取 SQLite 中的
+持久化完成时间，不凭进程内定时器推断缺失抓取。协议细节见 docs/source-contract.md，
+核验清单见 docs/acceptance.md。范围不含告警、预测或看板。
 
 ## 可复现容器
 
@@ -24,7 +43,7 @@ docker run --rm --network none storemetrics:local python -m unittest discover -s
 docker run --rm --network none storemetrics:local
 ```
 
-镜像固定基础摘要。构建在正式运行前完成；运行和测试不安装包、不下载数据。演示命令实际执行检查器及本地来源，通常不超过 5 秒；它不是新增业务接收已实现的声明。开发完成后扩展 scripts/demo.py 展示一个真实业务闭环，完整输出并控制在 90 秒以内。
+镜像固定基础摘要。构建在正式运行前完成；运行和测试不安装包、不下载数据。`scripts/demo.py` 展示真实业务闭环：一次成功、一次解析失败、再一次成功删除系列、超预算整批拒绝、非有限值与转义标签留存；输出为 JSON 行，实测远小于 90 秒。
 
 ## 协议与来源
 

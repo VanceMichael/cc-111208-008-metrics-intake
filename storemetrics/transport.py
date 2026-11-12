@@ -8,7 +8,7 @@ class NoRedirect(HTTPRedirectHandler):
         return None
 
 
-def capture(url, method='GET', data=None, headers=None, maximum=4194304):
+def capture(url, method='GET', data=None, headers=None, maximum=4194304, timeout=3):
     parsed = urlsplit(url)
     if parsed.scheme != 'http' or parsed.hostname not in ('127.0.0.1', 'localhost', '::1'):
         raise ValueError('The inspection transport accepts loopback HTTP only')
@@ -17,7 +17,7 @@ def capture(url, method='GET', data=None, headers=None, maximum=4194304):
     request = Request(url, data=data, method=method, headers=headers or {})
     opener = build_opener(ProxyHandler({}), NoRedirect())
     try:
-        response = opener.open(request, timeout=3)
+        response = opener.open(request, timeout=timeout)
     except HTTPError as error:
         response = error
     with response:

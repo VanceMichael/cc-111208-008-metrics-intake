@@ -1,0 +1,3 @@
+# TYPE cabinet_temperature gauge
+cabinet_temperature{cabinet="B",note="door\"s sensor\nline two\\back",zone="cold"} 3.25 1759990000
+# EOF

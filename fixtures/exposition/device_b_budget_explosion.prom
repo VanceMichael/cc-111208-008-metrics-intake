@@ -1,0 +1,32 @@
+# TYPE cabinet_temperature gauge
+cabinet_temperature{cabinet="B",zone="cold",firmware="1"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="2"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="3"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="4"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="5"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="6"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="7"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="8"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="9"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="10"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="11"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="12"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="13"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="14"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="15"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="16"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="17"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="18"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="19"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="20"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="21"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="22"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="23"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="24"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="25"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="26"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="27"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="28"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="29"} 3.25 1760000000
+cabinet_temperature{cabinet="B",zone="cold",firmware="30"} 3.25 1760000000
+# EOF

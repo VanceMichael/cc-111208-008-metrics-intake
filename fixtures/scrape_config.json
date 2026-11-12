@@ -1,0 +1,19 @@
+{
+  "endpoints": [
+    {
+      "name": "A",
+      "url": "http://127.0.0.1:8765/device/A"
+    },
+    {
+      "name": "B",
+      "url": "http://127.0.0.1:8765/device/B"
+    },
+    {
+      "name": "slow",
+      "url": "http://127.0.0.1:8765/device/slow"
+    }
+  ],
+  "series_budget": 200,
+  "interval_seconds": 60,
+  "timeout_seconds": 1.0
+}

@@ -1,0 +1,25 @@
+{
+  "routes": {
+    "GET /device/A": [
+      {"file": "exposition/device_a_complete.prom"},
+      {"file": "exposition/device_a_no_eof.prom"},
+      {"file": "exposition/device_a_empty.prom"}
+    ],
+    "GET /device/B": [
+      {"file": "exposition/device_b_escapes.prom"},
+      {"file": "exposition/device_b_after_clock_rollback.prom"}
+    ],
+    "GET /device/C": [
+      {"file": "exposition/device_c_nonfinite.prom"}
+    ],
+    "GET /device/B-bad-histogram": [
+      {"file": "exposition/device_b_bad_histogram.prom"}
+    ],
+    "GET /device/B-budget": [
+      {"file": "exposition/device_b_budget_explosion.prom"}
+    ],
+    "GET /device/slow": [
+      {"body": "# TYPE cabinet_temperature gauge\ncabinet_temperature{site=\"slow\"} 1\n# EOF\n", "delay": 2.0}
+    ]
+  }
+}

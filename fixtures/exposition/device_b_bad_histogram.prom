@@ -1,0 +1,7 @@
+# TYPE service_duration histogram
+service_duration_bucket{cabinet="B",le="0.5"} 3
+service_duration_bucket{cabinet="B",le="1"} 2
+service_duration_bucket{cabinet="B",le="+Inf"} 5
+service_duration_sum{cabinet="B"} 4.5
+service_duration_count{cabinet="B"} 5
+# EOF

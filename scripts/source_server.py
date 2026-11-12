@@ -5,6 +5,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
 import threading
+import time
 from urllib.parse import parse_qs
 
 
@@ -66,6 +67,9 @@ class ReplayHandler(BaseHTTPRequestHandler):
             payload = payload.replace(b'{{ORIGIN}}', self.server.origin.encode())
             headers = {name: value.replace('{{ORIGIN}}', self.server.origin)
                        for name, value in choice.get('headers', {}).items()}
+            delay = choice.get('delay', 0)
+            if delay:
+                time.sleep(delay)
             self.respond(choice.get('status', 200), headers, payload)
 
     def respond(self, status, headers, payload):

@@ -1,0 +1,10 @@
+# TYPE cabinet_temperature gauge
+cabinet_temperature{cabinet="C",zone="cold"} NaN
+cabinet_temperature{cabinet="C",zone="frozen"} -Inf
+cabinet_temperature{cabinet="C",zone="ambient"} +Inf
+# TYPE service_duration histogram
+service_duration_bucket{cabinet="C",le="1"} 0
+service_duration_bucket{cabinet="C",le="+Inf"} 0
+service_duration_sum{cabinet="C"} -Inf
+service_duration_count{cabinet="C"} 0
+# EOF

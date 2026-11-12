@@ -1,0 +1,14 @@
+# HELP cabinet_temperature Synthetic cold cabinet temperature
+# TYPE cabinet_temperature gauge
+# UNIT cabinet_temperature celsius
+cabinet_temperature{cabinet="A",site="north",zone="cold"} 4.5 1760000000
+cabinet_temperature{cabinet="A",zone="frozen",site="north"} 4.8 1760000000
+# HELP door_events_total Door opening events
+# TYPE door_events_total counter
+door_events_total{cabinet="A",zone="cold"} 12 1760000000
+# TYPE service_duration histogram
+service_duration_bucket{cabinet="A",le="1"} 2
+service_duration_bucket{cabinet="A",le="2.5"} 3
+service_duration_bucket{cabinet="A",le="+Inf"} 4
+service_duration_sum{cabinet="A"} 7.25
+service_duration_count{cabinet="A"} 4
