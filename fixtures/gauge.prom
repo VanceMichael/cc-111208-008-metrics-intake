@@ -1,0 +1,3 @@
+# TYPE cabinet_temperature gauge
+cabinet_temperature 4.5
+# EOF

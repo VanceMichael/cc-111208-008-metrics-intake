@@ -1,0 +1,20 @@
+{
+  "routes": {
+    "GET /device/A": [
+      {
+        "body": "# HELP cabinet_temperature Synthetic temperature\n# TYPE cabinet_temperature gauge\n# UNIT cabinet_temperature celsius\ncabinet_temperature{cabinet=\"A\",zone=\"cold\"} 4.5 12\n# TYPE service_duration histogram\nservice_duration_bucket{le=\"1\"} 2\nservice_duration_bucket{le=\"+Inf\"} 3\nservice_duration_sum 2.4\nservice_duration_count 3\n# EOF\n"
+      },
+      {
+        "body": "# HELP cabinet_temperature Synthetic temperature\n# TYPE cabinet_temperature gauge\n# UNIT cabinet_temperature celsius\ncabinet_temperature{cabinet=\"A\",zone=\"cold\"} 4.5 12\n# TYPE service_duration histogram\nservice_duration_bucket{le=\"1\"} 2\nservice_duration_bucket{le=\"+Inf\"} 3\nservice_duration_sum 2.4\nservice_duration_count 3\n"
+      },
+      {
+        "body": "# TYPE cabinet_temperature gauge\n# EOF\n"
+      }
+    ],
+    "GET /device/B": [
+      {
+        "body": "# TYPE cabinet_temperature gauge\ncabinet_temperature 4.5\n# EOF\n"
+      }
+    ]
+  }
+}

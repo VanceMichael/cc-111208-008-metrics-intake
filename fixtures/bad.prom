@@ -1,0 +1,9 @@
+# HELP cabinet_temperature Synthetic temperature
+# TYPE cabinet_temperature gauge
+# UNIT cabinet_temperature celsius
+cabinet_temperature{cabinet="A",zone="cold"} 4.5 12
+# TYPE service_duration histogram
+service_duration_bucket{le="1"} 2
+service_duration_bucket{le="+Inf"} 3
+service_duration_sum 2.4
+service_duration_count 3
